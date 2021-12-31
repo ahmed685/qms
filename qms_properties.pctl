@@ -1,0 +1,16 @@
+
+P>=1 [ F "Discharged" ]
+E [ F "Discharged" ] 
+
+E [ F "Checking_health_stability" & (X "Condition_is_stable") ] 
+E [ F "Checking_health_stability" & (X "Condition_is_critical") ] 
+
+E [ F "Condition_is_stable" & (X "Bed_allocated") ] 
+E [ F "Condition_is_stable" & (X "Sent_home") ] 
+
+E [ F "Condition_is_critical" & (X "Sent_home") ] 
+
+E [ F "Condition_is_stable" & (F "Completed_isolation_period") ] 
+
+
+//// comment : There exists a path along which label "A" eventually becomes true and label "B" is true immediately afterwards
